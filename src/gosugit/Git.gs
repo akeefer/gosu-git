@@ -1,21 +1,27 @@
 package gosugit
+uses java.lang.IllegalStateException
+uses java.io.File
+uses gw.util.Shell
 
 class Git {
 
-  // TODO - AHK - I'm not sure if this should be like this or not
+  private var _executablePath : String
 
-  private static var _executablePath
+  construct(executablePath : String) {
+    _executablePath = executablePath  
+  }  
 
-  public static property get ExecutablePath() : String {
-    return _executablePath
-  }
-
-  public static property set ExecutablePath(path : String) {
-    _executablePath = path
-  }
-
-  public function show(sha1 : String) : GitObject {
-
+  public function executeCall(baseDir : File, commandLine : String) : String {
+    var actualCommand : String
+    if (commandLine.startsWith("git")) {
+      actualCommand = _executablePath + commandLine.substring(3)  
+    } else {
+      actualCommand = _executablePath + " " + commandLine  
+    }
+    
+    var process = Shell.buildProcess( actualCommand )
+    process.setDirectory( baseDir )
+    return process.exec()
   }
 
 }
