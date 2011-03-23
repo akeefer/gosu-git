@@ -3,6 +3,10 @@ uses java.util.Date
 uses java.lang.Integer
 uses java.lang.Long
 
+/**
+ * This class represents a commit author (or committer).  It contains the name and e-mail address of the person, as well
+ * as the associated author/commit time.
+ */
 class Author {
 
   var _name : String
@@ -23,16 +27,29 @@ class Author {
     _date = new Date(Long.parseLong( timestamp ) * 1000l)
   }
 
+  /**
+   * The name of the person
+   */
   property get Name() : String {
     return _name
   }
 
+  /**
+   * The e-mail address of the person
+   */
   property get EmailAddress() : String {
     return _emailAddress
   }
 
+  /**
+   * The date at which the commit was authored or committed
+   */
   property get Date() : Date {
     return _date
+  }
+  
+  override function toString() : String {
+    return _name + " <" + _emailAddress + "> " + _date  
   }
 
 }

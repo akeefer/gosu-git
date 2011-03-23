@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cc1b6b78-a05e-427b-86c5-bae5d6c698a4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gosugit/Author.gs" afterPath="$PROJECT_DIR$/src/gosugit/Author.gs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gosugit/Git.gs" afterPath="$PROJECT_DIR$/src/gosugit/Git.gs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gosugit/GitCommit.gs" afterPath="$PROJECT_DIR$/src/gosugit/GitCommit.gs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gosugit/GitRepository.gs" afterPath="$PROJECT_DIR$/src/gosugit/GitRepository.gs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gosugit/GitTree.gs" afterPath="$PROJECT_DIR$/src/gosugit/GitTree.gs" />
     </list>
     <ignored path="gosu-git.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,19 +62,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Git.gs" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Git.gs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gosugit/Git.gs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="57" selection-start="517" selection-end="517" vertical-scroll-proportion="0.3988183">
+            <state line="23" column="31" selection-start="646" selection-end="646" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GitCommit.gs" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="GitCommit.gs" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gosugit/GitCommit.gs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="33" selection-start="75" selection-end="75" vertical-scroll-proportion="0.0">
+            <state line="46" column="53" selection-start="1274" selection-end="1274" vertical-scroll-proportion="0.30784708">
               <folding />
             </state>
           </provider>
@@ -131,7 +128,7 @@
       <file leaf-file-name="Author.gs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gosugit/Author.gs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="18" selection-start="971" selection-end="971" vertical-scroll-proportion="0.0">
+            <state line="25" column="73" selection-start="830" selection-end="830" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -151,14 +148,14 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/gosugit/Author.gs" />
         <option value="$PROJECT_DIR$/src/gosugit/GitBlob.gs" />
-        <option value="$PROJECT_DIR$/src/gosugit/GitCommit.gs" />
         <option value="$PROJECT_DIR$/src/gosugit/GitTree.gs" />
         <option value="$PROJECT_DIR$/src/gosugit/GitTag.gs" />
         <option value="$PROJECT_DIR$/src/gosugit/GitRepository.gs" />
         <option value="$PROJECT_DIR$/src/gosugit/GitObject.gs" />
         <option value="$PROJECT_DIR$/src/gosugit/Git.gs" />
+        <option value="$PROJECT_DIR$/src/gosugit/Author.gs" />
+        <option value="$PROJECT_DIR$/src/gosugit/GitCommit.gs" />
       </list>
     </option>
   </component>
@@ -247,9 +244,9 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="Favorites" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -365,26 +362,26 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="24" width="1602" height="853" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1616" height="1176" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24968314" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsManagerConfiguration">
@@ -420,58 +417,48 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/gosugit/GitBlob.gs">
+    <entry file="file://$PROJECT_DIR$/src/gosugit/GitRepository.gs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="51" selection-end="51" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gosugit/GitCommit.gs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="33" selection-start="75" selection-end="75" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="17" column="17" selection-start="358" selection-end="358" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gosugit/GitTree.gs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="31" selection-start="124" selection-end="124" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="6" column="31" selection-start="124" selection-end="124" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gosugit/GitObject.gs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="45" selection-end="45" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gosugit/GitTag.gs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="30" selection-start="47" selection-end="47" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="2" column="30" selection-start="47" selection-end="47" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gosugit/GitRepository.gs">
+    <entry file="file://$PROJECT_DIR$/src/gosugit/Git.gs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="17" selection-start="358" selection-end="358" vertical-scroll-proportion="0.0">
+        <state line="23" column="31" selection-start="646" selection-end="646" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gosugit/Author.gs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="18" selection-start="971" selection-end="971" vertical-scroll-proportion="0.0">
+        <state line="25" column="73" selection-start="830" selection-end="830" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gosugit/GitObject.gs">
+    <entry file="file://$PROJECT_DIR$/src/gosugit/GitBlob.gs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="45" selection-end="45" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="3" column="0" selection-start="51" selection-end="51" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gosugit/Git.gs">
+    <entry file="file://$PROJECT_DIR$/src/gosugit/GitCommit.gs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="57" selection-start="517" selection-end="517" vertical-scroll-proportion="0.3988183">
+        <state line="46" column="53" selection-start="1274" selection-end="1274" vertical-scroll-proportion="0.30784708">
           <folding />
         </state>
       </provider>
