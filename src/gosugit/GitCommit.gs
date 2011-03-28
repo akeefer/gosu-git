@@ -1,5 +1,7 @@
 package gosugit
+
 uses java.util.ArrayList
+uses java.util.List
 uses java.lang.StringBuilder
 uses java.lang.IllegalArgumentException
 
@@ -20,10 +22,29 @@ class GitCommit extends GitObject {
   private var _message : String
   private var _changedFiles : List<String>
 
+  private construct(__repository : GitRepository,
+                    __commitID : String,
+                    __tree : String,
+                    __parents : List<String>,
+                    __author : Author,
+                    __committer : Author,
+                    __message : String,
+                    __changedFiles : List<String>) {
+    _repository = __repository
+    _commitID = __commitID
+    _tree = __tree
+    _parents = __parents
+    _author = __author
+    _committer = __committer
+    _message = __message
+    _changedFiles = __changedFiles
+  }
+
   /**
-   * Constructs a new GitCommit object for the specified repository, using the raw output of git show
-   * to construct the data.  The data is assumed to be produced by "git show --pretty="raw" --names-only <sha1>"
+   * Constructs a set of GitCommit objects based on raw output from git log or git show.
+   * The data is assumed to be produced by "git show --pretty="raw" --names-only <sha1>"
    * The resulting output of git in that case is roughly:
+   *
    * commit <sha1>
    * tree <sha1>
    * parent <sha1>
@@ -35,68 +56,102 @@ class GitCommit extends GitObject {
    * 
    * Changed File
    * Changed File
+   *
+   * That pattern will be repeated, with a blank line in between the end of one commit and
+   * the start of the next one, for each commit if multiple commits have been described.
    */
-  construct(repository : GitRepository, rawData : String) {
-    _repository = repository
+  static function readCommitList(repository : GitRepository, rawData : String) : List<GitCommit> {
     var lines = rawData.split("\n")
-    
-    if (lines[0].startsWith("commit")) {
-      _commitID = lines[0].substring("commit".length + 1).trim()  
+    var commits = new ArrayList<GitCommit>()
+    var nextLine = 0
+    while (nextLine < lines.length) {
+      var result = readCommitFromOutput(repo, lines, nextLine)
+      commits.add(result._commit)
+      nextLine = result._nextLine
+    }
+    return commits
+  }
+
+  private static class SimplePair {
+    var _commit : GitCommit
+    var _nextLine : int
+
+    construct(commit : GitCommit, nextLine : int) {
+      _commit = commit
+      _nextLine = nextLine
+    }
+  }
+
+  static function readCommitFromOutput(repository : GitRepository, lines : String[], nextLine : int) : SimplePair {
+    var commitID : String
+    if (lines[nextLine].startsWith("commit")) {
+      commitID = lines[nextLine].substring("commit".length + 1).trim()
+      nextLine++
     } else {
       throw new IllegalArgumentException("The first line of the raw data should start with \"commit\".  Full input was:\n" + rawData)
     }
-    
-    if (lines[1].startsWith("tree")) {
-      _tree = lines[1].substring("tree".length + 1).trim()  
+
+    var tree : String
+    if (lines[nextLine].startsWith("tree")) {
+      tree = lines[nextLine].substring("tree".length + 1).trim()
+      nextLine++
     } else {
       throw new IllegalArgumentException("The second line of the raw data should start with \"tree\".  Full input was:\n" + rawData)
     }
-    
-    var nextLine = 2
-    _parents = new ArrayList<String>()
+
+    var parents : List<String = {}
     while (lines[nextLine].startsWith("parent")) {
-      _parents.add(lines[nextLine].substring("parent".length + 1).trim()) 
+      parents.add(lines[nextLine].substring("parent".length + 1).trim())
       nextLine++
     }
-    
+
+    var author : Author
     if (lines[nextLine].startsWith("author")) {
-      _author = new Author(lines[nextLine].substring("author".length + 1).trim())
-      nextLine++   
+      author = new Author(lines[nextLine].substring("author".length + 1).trim())
+      nextLine++
     } else {
       throw new IllegalArgumentException("The first line of the raw data after the parents should start with \"author\".  Full input was:\n" + rawData)
     }
-    
+
+    var committer : Author
     if (lines[nextLine].startsWith("committer")) {
-      _committer = new Author(lines[nextLine].substring("committer".length + 1).trim())
-      nextLine++   
+      committer = new Author(lines[nextLine].substring("committer".length + 1).trim())
+      nextLine++
     } else {
       throw new IllegalArgumentException("The line of the raw data after the author should start with \"committer\".  Full input was:\n" + rawData)
     }
-    
+
     // Each line of the commit message is prepended with four spaces
     var messageBuilder = new StringBuilder()
     while(nextLine < lines.length) {
       if (!lines[nextLine].Empty) {
         if (lines[nextLine].startsWith("    ")) {
-          // Part of the commit message  
+          // Part of the commit message
           if (messageBuilder.length() > 0) {
-            messageBuilder.append("\n")  
+            messageBuilder.append("\n")
           }
           messageBuilder.append(lines[nextLine].substring(4))
         } else {
           // Start of the affected files list
-          break  
+          break
         }
       }
       nextLine++
     }
-    _message = messageBuilder.toString()
-    
-    _changedFiles = {}
+    var message = messageBuilder.toString()
+
+    var changedFiles : List<String> = {}
     while(nextLine < lines.length) {
-      _changedFiles.add(lines[nextLine])
-      nextLine++  
+      if (lines[nextLine].NotBlank) {
+        _changedFiles.add(lines[nextLine])
+        nextLine++
+      } else {
+        nextLine++
+        break
+      }
     }
+
+    return new SimplePair(new GitCommit(repository, commitID, tree, parents, author, committer, message, changedFiles), nextLine)
   }
 
   /**

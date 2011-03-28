@@ -19,9 +19,21 @@ class GitRepository {
   }
   
   function readCommit(sha1 : String) : GitCommit {
+    // TODO - AHK - Throw if sha1 is null
     var call = "git show --pretty=\"raw\" --name-only " + sha1
     var result = _git.executeCall(_baseDir, call)  
     return new GitCommit(this, result)
+  }
+
+  function log(since : String, until : String) : List<GitCommit> {
+    // TODO - AHK - Throw if until is null
+    var call = "git log --pretty=\"raw\" --name-only "
+    if (since == null) {
+      call = call + until
+    } else {
+      call = call + since + ".." + until
+    }
+    var result = _git.executeCall(_baseDir, call)
   }
 
 }

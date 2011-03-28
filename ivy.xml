@@ -1,0 +1,10 @@
+<ivy-module version="2.0">
+  <info organisation="ronin" module="ronin-app"/>
+  <configurations>
+    <conf name="lib"/>
+    <conf name="support"/>
+  </configurations>
+  <dependencies>
+    <dependency org="junit" name="junit" rev="4.8.2" conf="support->*,!sources,!javadoc"/>
+  </dependencies>
+</ivy-module>

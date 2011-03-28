@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="JGit">
+  <library name="Test Dependencies">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/org.eclipse.jgit-0.10.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/support/junit-4.8.2.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
