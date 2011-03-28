@@ -22,7 +22,8 @@ class GitRepository {
     // TODO - AHK - Throw if sha1 is null
     var call = "git show --pretty=\"raw\" --name-only " + sha1
     var result = _git.executeCall(_baseDir, call)  
-    return new GitCommit(this, result)
+    var commits = GitCommit.readCommitList(this, result)
+    return commits[0]
   }
 
   function log(since : String, until : String) : List<GitCommit> {
@@ -34,6 +35,7 @@ class GitRepository {
       call = call + since + ".." + until
     }
     var result = _git.executeCall(_baseDir, call)
+    return GitCommit.readCommitList(this, result)
   }
 
 }

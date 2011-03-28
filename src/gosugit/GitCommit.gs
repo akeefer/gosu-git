@@ -65,7 +65,7 @@ class GitCommit extends GitObject {
     var commits = new ArrayList<GitCommit>()
     var nextLine = 0
     while (nextLine < lines.length) {
-      var result = readCommitFromOutput(repo, lines, nextLine)
+      var result = readCommitFromOutput(repository, lines, nextLine)
       commits.add(result._commit)
       nextLine = result._nextLine
     }
@@ -88,7 +88,7 @@ class GitCommit extends GitObject {
       commitID = lines[nextLine].substring("commit".length + 1).trim()
       nextLine++
     } else {
-      throw new IllegalArgumentException("The first line of the raw data should start with \"commit\".  Full input was:\n" + rawData)
+      throw new IllegalArgumentException("The first line of the raw data should start with \"commit\".  The line was: " + lines[nextLine])
     }
 
     var tree : String
@@ -96,10 +96,10 @@ class GitCommit extends GitObject {
       tree = lines[nextLine].substring("tree".length + 1).trim()
       nextLine++
     } else {
-      throw new IllegalArgumentException("The second line of the raw data should start with \"tree\".  Full input was:\n" + rawData)
+      throw new IllegalArgumentException("The second line of the raw data should start with \"tree\".  The line was: " + lines[nextLine])
     }
 
-    var parents : List<String = {}
+    var parents : List<String> = {}
     while (lines[nextLine].startsWith("parent")) {
       parents.add(lines[nextLine].substring("parent".length + 1).trim())
       nextLine++
@@ -110,7 +110,7 @@ class GitCommit extends GitObject {
       author = new Author(lines[nextLine].substring("author".length + 1).trim())
       nextLine++
     } else {
-      throw new IllegalArgumentException("The first line of the raw data after the parents should start with \"author\".  Full input was:\n" + rawData)
+      throw new IllegalArgumentException("The first line of the raw data after the parents should start with \"author\".  The line was: " + lines[nextLine])
     }
 
     var committer : Author
@@ -118,7 +118,7 @@ class GitCommit extends GitObject {
       committer = new Author(lines[nextLine].substring("committer".length + 1).trim())
       nextLine++
     } else {
-      throw new IllegalArgumentException("The line of the raw data after the author should start with \"committer\".  Full input was:\n" + rawData)
+      throw new IllegalArgumentException("The line of the raw data after the author should start with \"committer\".  The line was: " + lines[nextLine])
     }
 
     // Each line of the commit message is prepended with four spaces
@@ -143,7 +143,7 @@ class GitCommit extends GitObject {
     var changedFiles : List<String> = {}
     while(nextLine < lines.length) {
       if (lines[nextLine].NotBlank) {
-        _changedFiles.add(lines[nextLine])
+        changedFiles.add(lines[nextLine])
         nextLine++
       } else {
         nextLine++
