@@ -142,7 +142,11 @@ class GitCommit extends GitObject {
 
     var changedFiles : List<String> = {}
     while(nextLine < lines.length) {
-      if (lines[nextLine].NotBlank) {
+      if (lines[nextLine].startsWith("commit ")) {
+        // If there are no changed files, it's possible we'll be right onto the next commit
+        // message, so we need to guard against that potential situation
+        break
+      } else if (lines[nextLine].NotBlank) {
         changedFiles.add(lines[nextLine])
         nextLine++
       } else {
