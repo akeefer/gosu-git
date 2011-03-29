@@ -93,7 +93,7 @@ class GitRepositoryTest {
                         "Yet another commit;",
                         {"src/test/WillBeRemoved.gs"})
 
-    assertCommitMatches(commits[01],
+    assertCommitMatches(commits[1],
                         "7bf03f114eeb2da71447158bea6038fe2aa513bf",
                         "cd3b0b4ed04ce0f19898ba93242487557c3aeaa3",
                         {"43b0f87ebeadd0babe5b3fe8362e986b6ddceb5d"},
@@ -142,6 +142,33 @@ class GitRepositoryTest {
 
   @Test
   function testLogWithNullSinceArgument() {
+    var commits = GitTestConstants.TestRepository.log(null, "be8b2b23900c9386b8d8b148f44fdc9c7883fe80")
+    assertEquals(3, commits.Count)
+
+    assertCommitMatches(commits[0],
+                        "be8b2b23900c9386b8d8b148f44fdc9c7883fe80",
+                        "06bc415550bd84a7eee7249371de538647434968",
+                        {"7bf03f114eeb2da71447158bea6038fe2aa513bf"},
+                        null,
+                        "Yet another commit;",
+                        {"src/test/WillBeRemoved.gs"})
+
+    assertCommitMatches(commits[1],
+                        "7bf03f114eeb2da71447158bea6038fe2aa513bf",
+                        "cd3b0b4ed04ce0f19898ba93242487557c3aeaa3",
+                        {"43b0f87ebeadd0babe5b3fe8362e986b6ddceb5d"},
+                        null,
+                        "Add in FooBar.gs",
+                        {"src/test/FooBar.gs"})
+
+    assertCommitMatches(commits[2],
+                        "43b0f87ebeadd0babe5b3fe8362e986b6ddceb5d",
+                        "369b48703c5afc282f713b30919c3935f6dd163e",
+                        {},
+                        null,
+                        "Initial commit",
+                        {"README"})
+
     // TODO - AHK
   }
 
